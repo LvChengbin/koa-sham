@@ -34,19 +34,7 @@ module.exports = ( app, uri, options = {}, callback ) => {
 
     const socket = new Stream.Duplex();
     socket.remoteAddress = options.remoteAddress || '127.0.0.1';
-    let readable;
-    if( options.promise ) {
-        socket._write = () => {};
-    } else {
-        readable = new Stream.Readable();
-        readable._read = () => {};
-
-        socket._write = chunk => {
-            readable.push( chunk );
-        };
-    }
-
-
+    socket._write = () => {};
 
     const req = new http.IncomingMessage( socket );
     const request = Object.create( app.request );
@@ -143,6 +131,13 @@ module.exports = ( app, uri, options = {}, callback ) => {
             return Promise.reject( e );
         }
     }
+
+    const readable = new Stream.Readable();
+    readable._read = () => {};
+
+    socket._write = chunk => {
+        readable.push( chunk );
+    };
 
     if( is.function( callback ) ) {
         try {

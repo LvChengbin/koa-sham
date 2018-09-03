@@ -1,0 +1,41 @@
+{
+    "name": "koa-sham",
+    "version": "0.0.0",
+    "description": "To send fake request to a Koa application without starting a http server.",
+    "main": "index.js",
+    "scripts": {
+        "test-watch": "nodemon --exec npm test",
+        "test": "jasmine JASMINE_CONFIG_PATH=test/jasmine.json",
+        "lint": "eslint ./ --cache --ignore-path .eslintignore",
+        "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/LvChengbin/koa-sham.git"
+    },
+    "keywords": [
+        "koa",
+        "request",
+        "fake",
+        "sham",
+        "http",
+        "test"
+    ],
+    "author": "LvChengbin <lvchengbin59@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/LvChengbin/koa-sham/issues"
+    },
+    "homepage": "https://github.com/LvChengbin/koa-sham#readme",
+    "dependencies": {
+        "@lvchengbin/is": "0.0.18",
+        "koa": "^2.5.2"
+    },
+    "devDependencies": {
+        "@lvchengbin/koa-router": "0.0.9",
+        "jasmine": "^3.2.0",
+        "koa-bodyparser": "^4.2.1",
+        "koa-preuse": "0.0.0",
+        "nodemon": "^1.18.4"
+    }
+}

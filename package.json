@@ -1,7 +1,7 @@
 {
     "name": "koa-sham",
-    "version": "0.0.3",
-    "description": "To send fake request to a Koa application without starting a http server.",
+    "version": "0.0.4",
+    "description": "To send fake request to a Koa application without starting a http server. So that, you can require a Koa app into your code.",
     "main": "index.js",
     "scripts": {
         "test-watch": "nodemon --exec npm test",
@@ -19,7 +19,8 @@
         "fake",
         "sham",
         "http",
-        "test"
+        "test",
+        "mock"
     ],
     "author": "LvChengbin <lvchengbin59@gmail.com>",
     "license": "MIT",

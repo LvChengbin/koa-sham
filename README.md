@@ -34,6 +34,10 @@ sham( app, {
     console.log( body ); // { status : 1 }
 } );
 
+sham( app, '/path', { https: true }, ( err, res, body ) => {
+    console.log( body ); // { status : 1 }
+} );
+
 sham( app, { 
     method : 'POST',
     body : {

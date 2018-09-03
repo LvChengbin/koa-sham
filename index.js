@@ -34,6 +34,19 @@ module.exports = ( app, uri, options = {}, callback ) => {
 
     const socket = new Stream.Duplex();
     socket.remoteAddress = options.remoteAddress || '127.0.0.1';
+    let readable;
+    if( options.promise ) {
+        socket._write = () => {};
+    } else {
+        readable = new Stream.Readable();
+        readable._read = () => {};
+
+        socket._write = chunk => {
+            readable.push( chunk );
+        };
+    }
+
+
 
     const req = new http.IncomingMessage( socket );
     const request = Object.create( app.request );
@@ -110,13 +123,6 @@ module.exports = ( app, uri, options = {}, callback ) => {
     const response = Object.create( app.response );
     response.res = res;
 
-    const readable = new Stream.Readable();
-    readable._read = () => {};
-
-    socket._write = ( chunk ) => {
-        readable.push( chunk );
-    };
-
     res.assignSocket( socket );
 
     preuse( app, ( ctx, next ) => {
@@ -148,9 +154,8 @@ module.exports = ( app, uri, options = {}, callback ) => {
         } catch( e ) {
             callback( e );
         }
-        return;
+    } else {
+        app.callback()( req, res );
     }
-
-    app.callback()( req, res );
     return readable;
 };

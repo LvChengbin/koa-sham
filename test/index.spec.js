@@ -32,6 +32,17 @@ describe( 'sham', () => {
             } );
         } );
 
+        it( 'http version', done => {
+            const app = new Koa();
+            const body = { status : 'OK' };
+            app.use( ctx => {
+                ctx.body = body;
+                expect( ctx.req.httpVersion ).toEqual( 'sham' );
+                done();
+            } )
+            sham( app, { promise : true } );
+        } );
+
         for( const method of 'GET,POST,HEAD,OPTIONS,DELETE,PUT,PATCH'.split( ',' ) ) {
             it( `method ${method}`, done => {
                 const app = new Koa();

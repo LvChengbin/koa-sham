@@ -37,6 +37,7 @@ module.exports = ( app, uri, options = {}, callback ) => {
     socket._write = () => {};
 
     const req = new http.IncomingMessage( socket );
+    req.httpVersion = 'sham';
     const request = Object.create( app.request );
     request.req = req;
 
@@ -55,6 +56,7 @@ module.exports = ( app, uri, options = {}, callback ) => {
 
     request.url = uri;
     request.method = options.method ? options.method.toUpperCase() : 'GET';
+
 
     if( options.qs ) {
         if( request.query ) {

@@ -1,5 +1,7 @@
 # koa-sham
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/LvChengbin/koa-sham.svg)](https://greenkeeper.io/)
+
 To send fake request to a Koa application without starting a http server.
 
 **Sending `multipart` data will be supported later.**

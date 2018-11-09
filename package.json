@@ -29,7 +29,7 @@
     },
     "homepage": "https://github.com/LvChengbin/koa-sham#readme",
     "dependencies": {
-        "@lvchengbin/is": "0.0.18",
+        "@lvchengbin/is": "0.0.24",
         "koa": "^2.5.2"
     },
     "devDependencies": {

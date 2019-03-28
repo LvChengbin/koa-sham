@@ -1,6 +1,6 @@
 {
     "name": "koa-sham",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "description": "To send fake request to a Koa application without starting a http server. So that, you can require a Koa app into your code.",
     "main": "index.js",
     "scripts": {

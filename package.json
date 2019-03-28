@@ -1,11 +1,13 @@
 {
     "name": "koa-sham",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "To send fake request to a Koa application without starting a http server. So that, you can require a Koa app into your code.",
     "main": "index.js",
     "scripts": {
-        "test-watch": "nodemon --exec npm test",
-        "test": "jasmine JASMINE_CONFIG_PATH=test/jasmine.json",
+        "test": "jest --forceExit",
+        "tw": "jest --watch",
+        "test-watch": "jest --watch",
+        "test-cov": "jest --coverage --runInBand --forceExit --detectOpenHandles",
         "lint": "eslint ./ --cache --ignore-path .eslintignore",
         "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
     },
@@ -29,14 +31,31 @@
     },
     "homepage": "https://github.com/LvChengbin/koa-sham#readme",
     "dependencies": {
-        "@lvchengbin/is": "0.0.18",
-        "koa": "^2.5.2"
+        "@lvchengbin/is": "0.0.24",
+        "koa-preuse": "0.0.0"
     },
     "devDependencies": {
-        "@lvchengbin/koa-router": "0.0.9",
-        "jasmine": "^3.2.0",
+        "@lvchengbin/koa-router": "0.1.0",
+        "jest": "^23.6.0",
+        "koa": "^2.7.0",
         "koa-bodyparser": "^4.2.1",
-        "koa-preuse": "0.0.0",
         "nodemon": "^1.18.4"
+    },
+    "peerDependencies": {
+        "koa": ">=2.0.0"
+    },
+    "jest": {
+        "testMatch": [
+            "**/test/**/*.spec.js"
+        ],
+        "coverageReporters": [
+            "text-summary",
+            "text",
+            "lcov"
+        ],
+        "collectCoverageFrom": [
+            "index.js"
+        ],
+        "testEnvironment": "node"
     }
 }

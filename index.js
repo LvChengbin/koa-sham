@@ -57,7 +57,6 @@ module.exports = ( app, uri, options = {}, callback ) => {
     request.url = uri;
     request.method = options.method ? options.method.toUpperCase() : 'GET';
 
-
     if( options.qs ) {
         if( request.query ) {
             request.query = Object.assign( request.query, options.qs );

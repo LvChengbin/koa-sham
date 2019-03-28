@@ -7,7 +7,9 @@
     "globals" : {
         "define" : true,
         "describe" : true,
+        "xdescribe" : true,
         "it" : true,
+        "xit" : true,
         "expect" : true,
         "J" : true,
         "Jaunty" : true

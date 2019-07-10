@@ -31,18 +31,18 @@
     },
     "homepage": "https://github.com/LvChengbin/koa-sham#readme",
     "dependencies": {
-        "@lvchengbin/is": "0.0.24",
+        "@lvchengbin/is": "0.0.27",
         "koa-preuse": "0.0.0"
     },
     "devDependencies": {
-        "@lvchengbin/koa-router": "0.1.0",
-        "jest": "^23.6.0",
+        "@lvchengbin/koa-router": "0.1.1",
+        "jest": "^24.8.0",
         "koa": "^2.7.0",
         "koa-bodyparser": "^4.2.1",
-        "nodemon": "^1.18.4"
+        "nodemon": "^1.19.1"
     },
     "peerDependencies": {
-        "koa": ">=2.0.0"
+        "koa": ">=2.7.0"
     },
     "jest": {
         "testMatch": [

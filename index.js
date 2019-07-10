@@ -5,6 +5,8 @@ const Stream = require( 'stream' );
 const preuse = require( 'koa-preuse' );
 const is = require( '@lvchengbin/is' );
 
+const HAS_USED_SHAM = Symbol( 'has#used#sham' );
+
 const jsonTypes = [
     'application/json',
     'application/json-patch+json',
@@ -114,7 +116,7 @@ module.exports = ( app, uri, options = {}, callback ) => {
 
     res.assignSocket( socket );
 
-    preuse( app, ( ctx, next ) => {
+    app[ HAS_USED_SHAM ] || preuse( app, ( ctx, next ) => {
         ctx.res.ctx = ctx;
         return next();
     } );

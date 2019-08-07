@@ -116,10 +116,13 @@ module.exports = ( app, uri, options = {}, callback ) => {
 
     res.assignSocket( socket );
 
-    app[ HAS_USED_SHAM ] || preuse( app, ( ctx, next ) => {
-        ctx.res.ctx = ctx;
-        return next();
-    } );
+    if( !app[ HAS_USED_SHAM ] ) {
+        app[ HAS_USED_SHAM ] = true;
+        preuse( app, ( ctx, next ) => {
+            ctx.res.ctx = ctx;
+            return next();
+        } );
+    }
 
     if( options.promise ) {
         try {
